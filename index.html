@@ -242,11 +242,6 @@
             transition: opacity 1s ease;
         }
         
-       
-        
-       
-        
-     
         .project-title {
             font-size: 1.8rem;
             margin: 20px 0;
@@ -306,6 +301,7 @@
             padding: 15px;
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         .chart-container {
@@ -455,8 +451,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
@@ -466,12 +463,35 @@
         .loader-content {
             text-align: center;
             color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .loader-gif {
+        .loader-logo {
             width: 150px;
             height: 150px;
             object-fit: contain;
+            animation: pulse 1.5s infinite ease-in-out;
+            margin-bottom: 20px;
+        }
+        
+        .loader-text {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            animation: fadeInOut 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
         
         @media (max-width: 768px) {
@@ -537,7 +557,7 @@
                 font-size: 1.8rem;
             }
             
-            .loader-gif {
+            .loader-logo {
                 width: 100px;
                 height: 100px;
             }
@@ -564,7 +584,7 @@
                 font-size: 1.5rem;
             }
             
-            .loader-gif {
+            .loader-logo {
                 width: 80px;
                 height: 80px;
             }
@@ -575,7 +595,8 @@
     <!-- Loading Screen -->
     <div class="loader">
         <div class="loader-content">
-            <img src="Comp-1-1-unscreen.gif" alt="Loading" class="loader-gif">
+            <img src="images/LOGO KARANG TARUNA MUDA KARYA.png" alt="Loading" class="loader-logo">
+            <p class="loader-text">Memuat...</p>
         </div>
     </div>
     
@@ -624,58 +645,58 @@
         </section>
         
         <!-- Finance Section -->
-    <section id="finance">
-        <h2>Informasi Iuran</h2>
-        <p>Setiap anggota Karang Taruna Muda Karya diwajibkan membayar iuran setiap tanggal 10 setiap bulannya. Iuran ini digunakan untuk mendanai berbagai kegiatan dan program kerja kami.</p>
-        
-        <div class="finance-container">
-            <div class="finance-info">
-                <h3>Statistik Iuran Bulan Ini</h3>
-                <div class="chart-container">
-                    <canvas id="financeChart"></canvas>
-                </div>
-            </div>
+        <section id="finance">
+            <h2>Informasi Iuran</h2>
+            <p>Setiap anggota Karang Taruna Muda Karya diwajibkan membayar iuran setiap tanggal 10 setiap bulannya. Iuran ini digunakan untuk mendanai berbagai kegiatan dan program kerja kami.</p>
             
-            <div class="finance-info">
-                <h3>Detail Iuran per RT/RW</h3>
-                <div class="finance-grid">
-                    <div class="finance-card" id="rw1">
-                        <h4>RW 1 </h4>
-                        <div class="rt-data">
-                            <p>RT 1: <span class="rt-value" data-rt="1">140.000</span></p>
-                            <p>RT 2: <span class="rt-value" data-rt="2">105.000</span></p>
-                            <p>RT 3: <span class="rt-value" data-rt="3">130.000</span></p>
-                            <p>RT 4: <span class="rt-value" data-rt="4">395.000</span></p>
-                        </div>
-                        <p><strong>Total: <span class="rw-total">770.000</span></strong></p>
+            <div class="finance-container">
+                <div class="finance-info">
+                    <h3>Statistik Iuran Bulan Ini</h3>
+                    <div class="chart-container">
+                        <canvas id="financeChart"></canvas>
                     </div>
-                    <div class="finance-card" id="rw2">
-                        <h4>RW 2</h4>
-                        <div class="rt-data">
-                            <p>RT 1: <span class="rt-value" data-rt="1">-</span></p>
-                            <p>RT 2: <span class="rt-value" data-rt="2">200.000</span></p>
-                            <p>RT 3: <span class="rt-value" data-rt="3">-</span></p>
+                </div>
+                
+                <div class="finance-info">
+                    <h3>Detail Iuran per RT/RW</h3>
+                    <div class="finance-grid">
+                        <div class="finance-card" id="rw1">
+                            <h4>RW 1</h4>
+                            <div class="rt-data">
+                                <p>RT 1: <span class="rt-value" data-rt="1">140.000</span></p>
+                                <p>RT 2: <span class="rt-value" data-rt="2">105.000</span></p>
+                                <p>RT 3: <span class="rt-value" data-rt="3">140.000</span></p>
+                                <p>RT 4: <span class="rt-value" data-rt="4">395.000</span></p>
+                            </div>
+                            <p><strong>Total: <span class="rw-total">770.000</span></strong></p>
                         </div>
-                        <p><strong>Total: <span class="rw-total">200.000</span></strong></p>
-                    </div>
-                    <div class="finance-card" id="rw2">
-                        <h4>Donatur</h4>
-                        <div class="rt-data">
-                            <p>Kepala Desa: <span class="rt-value" data-rt="1">100.000</span></p>
-                            <p>Lain-lain: <span class="rt-value" data-rt="1">-</span></p>
+                        <div class="finance-card" id="rw2">
+                            <h4>RW 2</h4>
+                            <div class="rt-data">
+                                <p>RT 1: <span class="rt-value" data-rt="1">-</span></p>
+                                <p>RT 2: <span class="rt-value" data-rt="2">200.000</span></p>
+                                <p>RT 3: <span class="rt-value" data-rt="3">-</span></p>
+                            </div>
+                            <p><strong>Total: <span class="rw-total">200.000</span></strong></p>
                         </div>
-                        <p><strong>Total: <span class="rw-total">100.000</span></strong></p>
-                    </div>
-                    <div class="finance-card">
-                        <h4>Total Keseluruhan</h4>
-                        <p>Pemasukan: <span id="total-income">1.070.000</span></p>
-                        <p>Pengeluaran: <span id="total-expense" contenteditable="true">558.000</span></p>
-                        <p>Saldo: <span id="current-balance">512.000</span></p>
+                        <div class="finance-card" id="rw3">
+                            <h4>Donatur</h4>
+                            <div class="rt-data">
+                                <p>Kepala Desa: <span class="rt-value" data-rt="1">100.000</span></p>
+                                <p>Lain-lain: <span class="rt-value" data-rt="1">-</span></p>
+                            </div>
+                            <p><strong>Total: <span class="rw-total">100.000</span></strong></p>
+                        </div>
+                        <div class="finance-card">
+                            <h4>Total Keseluruhan</h4>
+                            <p>Pemasukan: <span id="total-income">1.070.000</span></p>
+                            <p>Pengeluaran: <span id="total-expense">558.000</span></p>
+                            <p>Saldo: <span id="current-balance">512.000</span></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
         
         <!-- Contact Section -->
         <section id="contact">
@@ -731,7 +752,6 @@
             // Initialize elements
             const comicCover = document.getElementById('comicCover');
             const comicTitle = document.getElementById('comicTitle');
-            const comicVideo = document.getElementById('comicVideo');
             const comicModal = document.getElementById('comicModal');
             const closeModal = document.getElementById('closeModal');
             const menuToggle = document.getElementById('menuToggle');
@@ -769,29 +789,6 @@
                 });
             });
             
-            // Video control for hover
-            if (comicVideo) {
-                comicCover.addEventListener('mouseenter', function() {
-                    comicVideo.currentTime = 0;
-                    comicVideo.play();
-                });
-                
-                comicCover.addEventListener('mouseleave', function() {
-                    comicVideo.pause();
-                    comicVideo.currentTime = 0;
-                });
-            }
-            
-            function openComic() {
-                comicModal.classList.add('show');
-                document.body.style.overflow = 'hidden';
-            }
-            
-            function closeComic() {
-                comicModal.classList.remove('show');
-                document.body.style.overflow = 'auto';
-            }
-            
             // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -818,217 +815,202 @@
                 observer.observe(section);
             });
             
-            // Add hover effect to project cover on mobile
-            let isMobile = false;
-            
-            function checkMobile() {
-                isMobile = window.innerWidth <= 768;
-            }
-            
-            window.addEventListener('resize', checkMobile);
-            checkMobile();
-            
-            if (isMobile && comicVideo) {
-                // Touch events for mobile
-                comicCover.addEventListener('touchstart', function() {
-                    comicVideo.currentTime = 0;
-                    comicVideo.play();
-                    this.style.transform = 'scale(0.98)';
-                });
-                
-                comicCover.addEventListener('touchend', function() {
-                    comicVideo.pause();
-                    comicVideo.currentTime = 0;
-                    this.style.transform = 'scale(1)';
-                });
-            }
-            
-            // Initialize Finance Chart
-            // Finance Data Structure
-        const financeData = {
-            months: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
-            currentMonthIndex: 4, // May is index 4 (0-based)
-            years: [2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025],
-            income: [0, 0, 0, 0, 1070000, 0, 0, 0, 0, 0, 0, 0],
-            expense: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            rwData: {
-                1: { // RW 1
-                    1: 140.000, // RT 1
-                    2: 105.000,  // RT 2
-                    3: 140.000, // RT 3
-                    4: 395.000  // RT 4
-                },
-                2: { // RW 2
-                    1: 0,  // RT 1
-                    2: 200.000, // RT 2
-                    3: 0  // RT 3
-                }
-            }
-        };
-
-        // Initialize Finance Chart
-        const ctx = document.getElementById('financeChart').getContext('2d');
-        const financeChart = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: financeData.months,
-                datasets: [
-                    {
-                        label: 'Pemasukan',
-                        data: financeData.income,
-                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
+            // Initialize Finance System
+            const financeData = {
+                months: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+                currentMonthIndex: 4, // May is index 4 (0-based)
+                years: [2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025],
+                income: [0, 0, 0, 0, 1070000, 0, 0, 0, 0, 0, 0, 0],
+                expense: [0, 0, 0, 0, 558000, 0, 0, 0, 0, 0, 0, 0],
+                rwData: {
+                    "1": { // RW 1
+                        "1": 140000, // RT 1
+                        "2": 105000,  // RT 2
+                        "3": 130000, // RT 3
+                        "4": 395000  // RT 4
                     },
-                    {
-                        label: 'Pengeluaran',
-                        data: financeData.expense,
-                        backgroundColor: 'rgba(255, 99, 132, 0.7)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
+                    "2": { // RW 2
+                        "1": 0,  // RT 1
+                        "2": 200000, // RT 2
+                        "3": 0  // RT 3
+                    },
+                    "3": { // Donatur
+                        "1": 100000 // Donatur
                     }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            callback: function(value) {
-                                return 'Rp ' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                            }
+                }
+            };
+
+            // Format number with dots as thousand separators
+            function formatNumber(num) {
+                if (num === 0) return '-';
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+
+            // Parse formatted number back to integer
+            function parseFormattedNumber(str) {
+                if (str === '-') return 0;
+                return parseInt(str.replace(/\./g, '')) || 0;
+            }
+
+            // Initialize Finance Chart
+            const ctx = document.getElementById('financeChart').getContext('2d');
+            const financeChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: financeData.months,
+                    datasets: [
+                        {
+                            label: 'Pemasukan',
+                            data: financeData.income,
+                            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Pengeluaran',
+                            data: financeData.expense,
+                            backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
                         }
-                    }
+                    ]
                 },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return 'Rp ' + formatNumber(value);
                                 }
-                                label += 'Rp ' + context.raw.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                                return label;
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    label += 'Rp ' + formatNumber(context.raw);
+                                    return label;
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
+            });
 
-        // Function to update all finance displays
-        function updateFinanceDisplay() {
-            // Update chart
-            financeChart.data.datasets[0].data = financeData.income;
-            financeChart.data.datasets[1].data = financeData.expense;
-            financeChart.update();
-            
-            // Update RW data display
-            for (const rw in financeData.rwData) {
-                let rwTotal = 0;
-                const rtData = financeData.rwData[rw];
+            // Function to update all finance displays
+            function updateFinanceDisplay() {
+                // Calculate total income from RW data
+                let totalIncome = 0;
+                for (const rw in financeData.rwData) {
+                    for (const rt in financeData.rwData[rw]) {
+                        totalIncome += financeData.rwData[rw][rt];
+                    }
+                }
+                financeData.income[financeData.currentMonthIndex] = totalIncome;
                 
-                for (const rt in rtData) {
-                    const value = rtData[rt];
-                    document.querySelector(`#rw${rw} .rt-value[data-rt="${rt}"]`).textContent = 
-                        value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                    rwTotal += value;
+                // Update chart
+                financeChart.data.datasets[0].data = financeData.income;
+                financeChart.data.datasets[1].data = financeData.expense;
+                financeChart.update();
+                
+                // Update RW data display
+                for (const rw in financeData.rwData) {
+                    let rwTotal = 0;
+                    const rtData = financeData.rwData[rw];
+                    
+                    for (const rt in rtData) {
+                        const value = rtData[rt];
+                        const element = document.querySelector(`#rw${rw} .rt-value[data-rt="${rt}"]`);
+                        if (element) {
+                            element.textContent = formatNumber(value);
+                        }
+                        rwTotal += value;
+                    }
+                    
+                    const rwTotalElement = document.querySelector(`#rw${rw} .rw-total`);
+                    if (rwTotalElement) {
+                        rwTotalElement.textContent = formatNumber(rwTotal);
+                    }
                 }
                 
-                document.querySelector(`#rw${rw} .rw-total`).textContent = 
-                    rwTotal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            }
-            
-            // Calculate and update totals
-            const currentIncome = financeData.income[financeData.currentMonthIndex];
-            const currentExpense = financeData.expense[financeData.currentMonthIndex];
-            
-            document.getElementById('total-income').textContent = 
-                currentIncome.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            document.getElementById('total-expense').textContent = 
-                currentExpense.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            document.getElementById('current-balance').textContent = 
-                (currentIncome - currentExpense).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-            
-            // Update month display
-            document.getElementById('currentMonth').textContent = 
-                `${financeData.months[financeData.currentMonthIndex]} ${financeData.years[financeData.currentMonthIndex]}`;
-        }
-
-        // Function to calculate RW totals and update financeData
-        function calculateTotals() {
-            // Calculate RW totals and update financeData.income for current month
-            let totalIncome = 0;
-            for (const rw in financeData.rwData) {
-                const rtData = financeData.rwData[rw];
-                for (const rt in rtData) {
-                    totalIncome += rtData[rt];
-                }
-            }
-            financeData.income[financeData.currentMonthIndex] = totalIncome;
-            
-            // Update expense from editable field
-            const expenseText = document.getElementById('total-expense').textContent;
-            const expenseValue = parseInt(expenseText.replace(/\./g, '')) || 0;
-            financeData.expense[financeData.currentMonthIndex] = expenseValue;
-            
-            // Update display
-            updateFinanceDisplay();
-        }
-
-        // Edit RT values
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const rw = this.getAttribute('data-rw');
-                const rtData = financeData.rwData[rw];
-                const rtElements = document.querySelectorAll(`#rw${rw} .rt-value`);
+                // Update totals
+                const currentIncome = financeData.income[financeData.currentMonthIndex];
+                const currentExpense = financeData.expense[financeData.currentMonthIndex];
+                const currentBalance = currentIncome - currentExpense;
                 
-                rtElements.forEach(el => {
-                    const rt = el.getAttribute('data-rt');
-                    const currentValue = rtData[rt];
-                    el.innerHTML = `<input type="text" class="rt-edit" value="${currentValue}" data-rt="${rt}">`;
+                document.getElementById('total-income').textContent = formatNumber(currentIncome);
+                document.getElementById('total-expense').textContent = formatNumber(currentExpense);
+                document.getElementById('current-balance').textContent = formatNumber(currentBalance);
+            }
+
+            // Make RT values editable
+            document.querySelectorAll('.rt-value').forEach(element => {
+                element.addEventListener('click', function() {
+                    const originalValue = parseFormattedNumber(this.textContent);
+                    const rw = this.closest('.finance-card').id.replace('rw', '');
+                    const rt = this.getAttribute('data-rt');
+                    
+                    this.innerHTML = `<input type="text" class="rt-edit" value="${formatNumber(originalValue)}">`;
+                    const input = this.querySelector('.rt-edit');
+                    input.focus();
+                    
+                    // Handle input blur (when focus is lost)
+                    input.addEventListener('blur', function() {
+                        const newValue = parseFormattedNumber(this.value);
+                        financeData.rwData[rw][rt] = newValue;
+                        updateFinanceDisplay();
+                    });
+                    
+                    // Handle Enter key press
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            this.blur();
+                        }
+                    });
+                });
+            });
+
+            // Make expense editable
+            const expenseElement = document.getElementById('total-expense');
+            expenseElement.addEventListener('click', function() {
+                const originalValue = parseFormattedNumber(this.textContent);
+                this.innerHTML = `<input type="text" class="expense-edit" value="${formatNumber(originalValue)}">`;
+                const input = this.querySelector('.expense-edit');
+                input.focus();
+                
+                input.addEventListener('blur', function() {
+                    const newValue = parseFormattedNumber(this.value);
+                    financeData.expense[financeData.currentMonthIndex] = newValue;
+                    updateFinanceDisplay();
                 });
                 
-                
-                this.parentElement.appendChild(saveBtn);
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        this.blur();
+                    }
+                });
             });
-        });
 
-        // Month navigation
-        document.getElementById('prevMonth').addEventListener('click', function() {
-            if (financeData.currentMonthIndex > 0) {
-                financeData.currentMonthIndex--;
-                calculateTotals();
+            // Initialize display
+            updateFinanceDisplay();
+
+            function openComic() {
+                comicModal.classList.add('show');
+                document.body.style.overflow = 'hidden';
             }
-        });
-
-        document.getElementById('nextMonth').addEventListener('click', function() {
-            if (financeData.currentMonthIndex < 11) {
-                financeData.currentMonthIndex++;
-                calculateTotals();
+            
+            function closeComic() {
+                comicModal.classList.remove('show');
+                document.body.style.overflow = 'auto';
             }
-        });
-
-        // Expense editing
-        document.getElementById('total-expense').addEventListener('blur', function() {
-            calculateTotals();
-        });
-
-        // Format number while typing
-        document.addEventListener('input', function(e) {
-            if (e.target.classList.contains('rt-edit')) {
-                const value = e.target.value.replace(/[^\d]/g, '');
-                if (value) {
-                    e.target.value = parseInt(value).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-                }
-            }
-        });
-
-        // Initialize display
-        updateFinanceDisplay();
         });
     </script>
 </body>

@@ -656,11 +656,19 @@
                             <p>RT 2: <span class="rt-value" data-rt="2">200.000</span></p>
                             <p>RT 3: <span class="rt-value" data-rt="3">-</span></p>
                         </div>
-                        <p><strong>Total: <span class="rw-total">-</span></strong></p>
+                        <p><strong>Total: <span class="rw-total">200.000</span></strong></p>
+                    </div>
+                    <div class="finance-card" id="rw2">
+                        <h4>Donatur</h4>
+                        <div class="rt-data">
+                            <p>Kepala Desa: <span class="rt-value" data-rt="1">100.000</span></p>
+                            <p>Lain-lain: <span class="rt-value" data-rt="1">-</span></p>
+                        </div>
+                        <p><strong>Total: <span class="rw-total">100.000</span></strong></p>
                     </div>
                     <div class="finance-card">
                         <h4>Total Keseluruhan</h4>
-                        <p>Pemasukan: <span id="total-income">1.000.000</span></p>
+                        <p>Pemasukan: <span id="total-income">1.070.000</span></p>
                         <p>Pengeluaran: <span id="total-expense" contenteditable="true">558.000</span></p>
                         <p>Saldo: <span id="current-balance">512.000</span></p>
                     </div>
@@ -841,7 +849,7 @@
             months: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
             currentMonthIndex: 4, // May is index 4 (0-based)
             years: [2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025, 2025],
-            income: [0, 0, 0, 0, 1.000.000, 0, 0, 0, 0, 0, 0, 0],
+            income: [0, 0, 0, 0, 1070000, 0, 0, 0, 0, 0, 0, 0],
             expense: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             rwData: {
                 1: { // RW 1
@@ -855,9 +863,6 @@
                     2: 200.000, // RT 2
                     3: 0  // RT 3
                 }
-                3: { // RW 1
-                    1: 100.000, // Kepala Desa
-                },
             }
         };
 
